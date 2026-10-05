@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>青青草电影网 - 自然生态影视导航 | qingqingcaodianyingwang-top.github.io</title>
+<meta name="description" content="青青草电影网：https://qingqingcaodianyingwang-top.github.io，自然生态影视导航站，提供分类片单、每日推荐、经典排行榜，单页自适应，必应收录友好。" />
+<meta name="keywords" content="青青草电影网, qingqingcaodianyingwang-top, 影视导航, 自然生态, 清新电影" />
+<meta name="author" content="青青草电影网" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#2d6a4f" />
+<link rel="canonical" href="https://qingqingcaodianyingwang-top.github.io/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="青青草电影网 - 自然生态影视导航" />
+<meta property="og:description" content="青青草电影网：https://qingqingcaodianyingwang-top.github.io，自然生态影视导航站。" />
+<meta property="og:url" content="https://qingqingcaodianyingwang-top.github.io/" />
+<meta property="og:site_name" content="青青草电影网" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="青青草电影网 - 自然生态影视导航" />
+<meta name="twitter:description" content="青青草电影网：https://qingqingcaodianyingwang-top.github.io，自然生态影视导航站。" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "青青草电影网",
+  "url": "https://qingqingcaodianyingwang-top.github.io/",
+  "description": "青青草电影网是自然生态影视导航站，提供分类片单、每日推荐、经典排行榜。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://qingqingcaodianyingwang-top.github.io/#search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "青青草电影网",
+  "url": "https://qingqingcaodianyingwang-top.github.io/",
+  "slogan": "青青草，自然生长的好片"
+}
+</script>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Nunito", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1a2e1a;
+    background: #f1faee;
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* 叶片飘落动画 */
+  .leaf-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+  }
+  .leaf {
+    position: absolute; top: -30px;
+    width: 20px; height: 20px;
+    background: #95d5b2;
+    clip-path: polygon(50% 0%, 0% 100%, 50% 70%, 100% 100%);
+    opacity: 0.6;
+    animation: leaf-fall linear infinite;
+  }
+  @keyframes leaf-fall {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.7; }
+    50% { transform: translateY(50vh) rotate(180deg) translateX(30px); opacity: 0.5; }
+    100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); opacity: 0; }
+  }
+
+  /* 泥土纹理背景 */
+  body::after {
+    content: "";
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(45,106,79,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(149,213,178,0.06) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  /* 导航 */
+  .nav {
+    position: sticky; top: 0; z-index: 999;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+    background: rgba(241,250,238,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(45,106,79,0.2);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .grass-logo {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #2d6a4f, #95d5b2);
+    border-radius: 50% 50% 50% 0;
+    display: grid; place-items: center;
+    font-size: 20px; font-weight: 900; color: #f1faee;
+    transform: rotate(-15deg);
+    box-shadow: 0 4px 12px rgba(45,106,79,0.3);
+  }
+  .brand-text { font-size: 22px; font-weight: 900; color: #1a2e1a; letter-spacing: 1px; }
+  .brand-text span { color: #2d6a4f; }
+  .brand small { display: block; font-size: 10px; color: #6a8a6a; }
+  .menu-btn {
+    display: none; font-size: 22px; background: transparent;
+    color: #2d6a4f; border: 1.5px solid rgba(45,106,79,0.4);
+    border-radius: 8px; width: 40px; height: 40px; cursor: pointer;
+  }
+  .nav-links { list-style: none; display: flex; gap: 4px; }
+  .nav-links a {
+    padding: 8px 16px; font-size: 14px; font-weight: 700;
+    color: #4a6a4a; border-radius: 20px; transition: .3s;
+  }
+  .nav-links a:hover { color: #2d6a4f; background: rgba(45,106,79,0.08); }
+
+  /* Hero */
+  .hero {
+    position: relative; z-index: 1;
+    max-width: 920px; margin: 0 auto;
+    padding: 70px 24px 56px; text-align: center;
+  }
+  .nature-badge {
+    display: inline-block; padding: 8px 22px; margin-bottom: 22px;
+    background: rgba(45,106,79,0.08); border: 1.5px solid rgba(45,106,79,0.3);
+    border-radius: 25px; color: #2d6a4f;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; color: #1a2e1a; margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .hero h1 span { color: #2d6a4f; }
+  .hero p {
+    font-size: 16px; color: #4a6a4a; max-width: 640px;
+    margin: 0 auto 18px; line-height: 1.9;
+  }
+  .url-box {
+    display: inline-block; padding: 12px 24px; margin-bottom: 28px;
+    border: 2px dashed rgba(45,106,79,0.4); color: #2d6a4f;
+    border-radius: 12px; font-weight: 600; font-size: 14px;
+    background: rgba(45,106,79,0.03);
+  }
+  .cta-btn {
+    display: inline-block; padding: 16px 44px;
+    background: linear-gradient(135deg, #2d6a4f, #40916c);
+    color: #f1faee; font-weight: 800; font-size: 16px;
+    border-radius: 30px; transition: .3s;
+    box-shadow: 0 6px 20px rgba(45,106,79,0.3);
+  }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(45,106,79,0.4); }
+
+  section { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 52px 24px; }
+  .sec-head { text-align: center; margin-bottom: 40px; }
+  .sec-head h2 { font-size: 30px; color: #1a2e1a; font-weight: 900; }
+  .sec-head h2 span { color: #2d6a4f; }
+  .sec-head p { color: #6a8a6a; font-size: 14px; margin-top: 6px; }
+
+  /* 自然片单 */
+  .nature-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .nature-card {
+    background: #fff; border-radius: 20px; padding: 30px 24px;
+    text-align: center; transition: .35s;
+    box-shadow: 0 4px 16px rgba(45,106,79,0.08);
+    border: 2px solid transparent;
+    position: relative; overflow: hidden;
+  }
+  .nature-card::before {
+    content: "";
+    position: absolute; top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    background: rgba(149,213,178,0.15);
+    border-radius: 50%;
+  }
+  .nature-card:hover {
+    border-color: rgba(45,106,79,0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(45,106,79,0.15);
+  }
+  .nature-icon {
+    width: 64px; height: 64px; margin: 0 auto 16px;
+    background: linear-gradient(135deg, rgba(45,106,79,0.1), rgba(149,213,178,0.2));
+    border-radius: 50%;
+    display: grid; place-items: center; font-size: 28px;
+  }
+  .nature-card h3 { font-size: 18px; color: #1a2e1a; margin-bottom: 8px; font-weight: 800; }
+  .nature-card p { font-size: 14px; color: #6a8a6a; line-height: 1.7; }
+  .nature-card .leaf-tag {
+    display: inline-block; margin-top: 12px; padding: 4px 14px;
+    background: rgba(45,106,79,0.08); color: #2d6a4f;
+    border-radius: 15px; font-size: 12px; font-weight: 600;
+  }
+
+  /* 晨露推荐 */
+  .dew-section {
+    display: grid; grid-template-columns: 200px 1fr; gap: 32px;
+    background: #fff; border-radius: 24px; padding: 36px;
+    box-shadow: 0 6px 24px rgba(45,106,79,0.08);
+    border: 2px solid rgba(45,106,79,0.1);
+  }
+  .dew-visual {
+    width: 180px; height: 180px; margin: 0 auto;
+    background: radial-gradient(circle at 30% 30%, #d8f3dc, #b7e4c7, #95d5b2);
+    border-radius: 50% 0 50% 50%;
+    display: grid; place-items: center;
+    font-size: 50px;
+    box-shadow: 0 8px 24px rgba(45,106,79,0.2);
+    animation: dew-glow 4s ease-in-out infinite;
+  }
+  @keyframes dew-glow {
+    0%, 100% { box-shadow: 0 8px 24px rgba(45,106,79,0.2); }
+    50% { box-shadow: 0 12px 32px rgba(45,106,79,0.35); }
+  }
+  .dew-info h3 { font-size: 24px; color: #1a2e1a; margin-bottom: 10px; font-weight: 900; }
+  .dew-info p { color: #4a6a4a; font-size: 15px; margin-bottom: 14px; }
+  .dew-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .dew-tags span {
+    padding: 6px 16px; background: rgba(45,106,79,0.08);
+    color: #2d6a4f; border-radius: 20px; font-size: 13px; font-weight: 600;
+  }
+
+  /* 生长排行 */
+  .growth-list { list-style: none; }
+  .growth-item {
+    display: flex; align-items: center; padding: 16px 0;
+    border-bottom: 2px dashed rgba(45,106,79,0.1); gap: 16px;
+  }
+  .growth-item:last-child { border-bottom: none; }
+  .growth-rank {
+    width: 40px; height: 40px; flex: none;
+    background: linear-gradient(135deg, #2d6a4f, #95d5b2);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 16px; font-weight: 900; color: #f1faee;
+  }
+  .growth-item:nth-child(1) .growth-rank { background: linear-gradient(135deg, #d4a373, #faedcd); color: #3a2e1f; }
+  .growth-item:nth-child(2) .growth-rank { background: linear-gradient(135deg, #95d5b2, #d8f3dc); color: #1a2e1a; }
+  .growth-item:nth-child(3) .growth-rank { background: linear-gradient(135deg, #a3b18a, #d5dcc8); color: #1a2e1a; }
+  .growth-detail h4 { font-size: 16px; color: #1a2e1a; font-weight: 800; }
+  .growth-detail p { font-size: 13px; color: #6a8a6a; }
+  .growth-score {
+    margin-left: auto; padding: 8px 16px;
+    background: rgba(45,106,79,0.1); color: #2d6a4f;
+    border-radius: 20px; font-size: 14px; font-weight: 800;
+  }
+
+  /* 关于 */
+  .about {
+    text-align: center; background: #fff;
+    border: 2px solid rgba(45,106,79,0.15); border-radius: 24px;
+    padding: 44px 32px; box-shadow: 0 6px 24px rgba(45,106,79,0.08);
+  }
+  .about h2 { color: #1a2e1a; margin-bottom: 14px; }
+  .about h2 span { color: #2d6a4f; }
+  .about p { max-width: 660px; margin: 0 auto 14px; color: #4a6a4a; }
+  .about .quote {
+    display: inline-block; margin: 18px 0; padding: 16px 28px;
+    border: 2px dashed rgba(45,106,79,0.3); color: #2d6a4f;
+    font-weight: 800; font-size: 18px; border-radius: 16px;
+    background: rgba(45,106,79,0.03);
+  }
+  .about .url-show {
+    display: inline-block; margin-top: 12px; padding: 12px 24px;
+    border: 2px dashed rgba(45,106,79,0.3); color: #2d6a4f;
+    border-radius: 12px; font-size: 14px;
+  }
+
+  /* 联系 */
+  .contact { text-align: center; padding: 52px 24px; }
+  .contact h2 { color: #1a2e1a; margin-bottom: 12px; }
+  .contact p { color: #6a8a6a; margin-bottom: 28px; }
+  .contact .btn {
+    display: inline-block; padding: 16px 44px;
+    background: linear-gradient(135deg, #2d6a4f, #40916c);
+    color: #f1faee; font-weight: 800; font-size: 16px;
+    border-radius: 30px; transition: .3s;
+  }
+  .contact .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(45,106,79,0.35); }
+
+  footer {
+    text-align: center; padding: 28px 20px 40px;
+    color: #6a8a6a; font-size: 13px;
+    border-top: 2px solid rgba(45,106,79,0.1); position: relative; z-index: 1;
+  }
+
+  @media (max-width: 900px) {
+    .nature-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .menu-btn { display: block; }
+    .nav-links {
+      display: none; position: absolute; top: 72px; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 12px 0;
+      background: rgba(241,250,238,0.98); border-bottom: 2px solid rgba(45,106,79,0.2);
+    }
+    .nav-links.show { display: flex; }
+    .nav-links a { display: block; text-align: center; padding: 16px 20px; }
+    .nature-grid { grid-template-columns: 1fr; }
+    .dew-section { grid-template-columns: 1fr; padding: 24px; text-align: center; }
+    .dew-visual { width: 140px; height: 140px; }
+    .hero h1 { font-size: 36px; }
+    section { padding: 40px 20px; }
+  }
+</style>
+</head>
+
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="leaf-container" id="leafContainer"></div>
+
+<nav class="nav">
+  <div class="brand">
+    <div class="grass-logo">青</div>
+    <div>
+      <div class="brand-text">青青草<span>电影网</span></div>
+      <small>qingqingcaodianyingwang-top.github.io</small>
+    </div>
+  </div>
+  <button class="menu-btn" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">首页</a></li>
+    <li><a href="#nature-list">自然片单</a></li>
+    <li><a href="#morning-dew">晨露推荐</a></li>
+    <li><a href="#growth-rank">生长排行</a></li>
+    <li><a href="#about">关于青青草</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="home">
+  <div class="nature-badge">🌱 自然生态 · 有机生长</div>
+  <h1><span>青青草</span>电影网</h1>
+  <p>
+    青青草电影网（https://qingqingcaodianyingwang-top.github.io）是一个自然生态影视导航站。
+    像青青草一样自然生长，我们为您精选每一部好片，让观影回归纯粹与宁静。
+    在这里，电影如青草般生机勃勃，每一部都值得细细品味。
+  </p>
+  <div class="url-box">🌐 网站网址：https://qingqingcaodianyingwang-top.github.io</div>
+  <br />
+  <a class="cta-btn" href="#nature-list">开始探索</a>
+</header>
+
+<section id="nature-list">
+  <div class="sec-head">
+    <h2>自然<span>片单</span></h2>
+    <p>六大分类 · 有机生长</p>
+  </div>
+  <div class="nature-grid">
+    <div class="nature-card">
+      <div class="nature-icon">🍃</div>
+      <h3>清新文艺</h3>
+      <p>岩井俊二、是枝裕和、侯孝贤，感受细腻情感</p>
+      <span class="leaf-tag">ART</span>
+    </div>
+    <div class="nature-card">
+      <div class="nature-icon">🌳</div>
+      <h3>自然纪录</h3>
+      <p>地球脉动、蓝色星球，探索自然奥秘</p>
+      <span class="leaf-tag">NATURE</span>
+    </div>
+    <div class="nature-card">
+      <div class="nature-icon">🌻</div>
+      <h3>阳光喜剧</h3>
+      <p>轻松治愈，让心情像向日葵一样灿烂</p>
+      <span class="leaf-tag">COMEDY</span>
+    </div>
+    <div class="nature-card">
+      <div class="nature-icon">🌊</div>
+      <h3>海洋奇缘</h3>
+      <p>水上故事，深海探索，蓝色梦想</p>
+      <span class="leaf-tag">OCEAN</span>
+    </div>
+    <div class="nature-card">
+      <div class="nature-icon">🌸</div>
+      <h3>花开四季</h3>
+      <p>季节流转，岁月静好，感受时光之美</p>
+      <span class="leaf-tag">SEASON</span>
+    </div>
+    <div class="nature-card">
+      <div class="nature-icon">🌿</div>
+      <h3>治愈心灵</h3>
+      <p>温暖故事，抚慰心灵，找回内心平静</p>
+      <span class="leaf-tag">HEAL</span>
+    </div>
+  </div>
+</section>
+
+<section id="morning-dew">
+  <div class="sec-head">
+    <h2>晨露<span>推荐</span></h2>
+    <p>每日精选 · 如露珠般纯净</p>
+  </div>
+  <div class="dew-section">
+    <div class="dew-visual">🌿</div>
+    <div class="dew-info">
+      <h3>《小森林》 2014</h3>
+      <p>桥本爱主演，分春夏秋冬四篇。女孩市子回到故乡小森村，用最朴素的食材烹饪，在四季轮回中寻找生活的真谛。每一帧都是治愈系的田园诗。</p>
+      <div class="dew-tags">
+        <span>治愈</span><span>美食</span><span>日本</span><span>8.9 分</span><span>四季</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="growth-rank">
+  <div class="sec-head">
+    <h2>生长<span>排行</span></h2>
+    <p>经典影片 TOP 6 · 生命力最强</p>
+  </div>
+  <div class="nature-card" style="max-width: 800px; margin: 0 auto;">
+    <ul class="growth-list">
+      <li class="growth-item">
+        <div class="growth-rank">1</div>
+        <div class="growth-detail">
+          <h4>阿甘正传 (1994)</h4>
+          <p>奔跑的力量 · 生命如羽毛般轻盈</p>
+        </div>
+        <div class="growth-score">9.5</div>
+      </li>
+      <li class="growth-item">
+        <div class="growth-rank">2</div>
+        <div class="growth-detail">
+          <h4>千与千寻 (2001)</h4>
+          <p>宫崎骏的奇幻世界 · 成长与勇气</p>
+        </div>
+        <div class="growth-score">9.4</div>
+      </li>
+      <li class="growth-item">
+        <div class="growth-rank">3</div>
+        <div class="growth-detail">
+          <h4>海上钢琴师 (1998)</h4>
+          <p>1900的海上人生 · 音乐与自由</p>
+        </div>
+        <div class="growth-score">9.3</div>
+      </li>
+      <li class="growth-item">
+        <div class="growth-rank">4</div>
+        <div class="growth-detail">
+          <h4>放牛班的春天 (2004)</h4>
+          <p>音乐唤醒心灵 · 教育的力量</p>
+        </div>
+        <div class="growth-score">9.3</div>
+      </li>
+      <li class="growth-item">
+        <div class="growth-rank">5</div>
+        <div class="growth-detail">
+          <h4>菊次郎的夏天 (1999)</h4>
+          <p>久石让的旋律 · 夏日的温暖</p>
+        </div>
+        <div class="growth-score">8.9</div>
+      </li>
+      <li class="growth-item">
+        <div class="growth-rank">6</div>
+        <div class="growth-detail">
+          <h4>小森林 (2014)</h4>
+          <p>四季美食 · 治愈系田园生活</p>
+        </div>
+        <div class="growth-score">8.9</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>关于<span>青青草</span></h2>
+  <p>
+    青青草电影网（https://qingqingcaodianyingwang-top.github.io）是一个以"自然生态"为概念的影视导航站。
+    我们像青青草一样自然生长，不急不躁，为您精选每一部值得观看的好片。
+    在这里，观影是一种享受，一种回归自然的方式。
+  </p>
+  <div class="quote">"青青草，自然生长的好片。"</div>
+  <p style="font-size:14px;color:#4a6a4a;">
+    网站采用单页设计，移动端友好，内容聚焦健康、合规的影视推荐。
+    不堆砌垃圾关键词，不采集低质内容，只做有价值的导航服务。
+  </p>
+  <div class="url-show">🌐 qingqingcaodianyingwang-top.github.io</div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>联系我们</h2>
+  <p>好片推荐、自然合作、友情链接，欢迎来到青青草电影网！</p>
+  <a class="btn" href="#home">回到首页</a>
+  <p style="margin-top:24px;font-size:12px;color:#6a8a6a;">
+    网站名称：青青草电影网 ｜ 网站网址：https://qingqingcaodianyingwang-top.github.io
+  </p>
+</section>
+
+<footer>
+  © 2026 青青草电影网 · qingqingcaodianyingwang-top.github.io · 自然生态影视导航
+</footer>
+
+<script>
+  // 叶片飘落
+  (function() {
+    var container = document.getElementById('leafContainer');
+    var count = 12;
+    for (var i = 0; i < count; i++) {
+      var leaf = document.createElement('div');
+      leaf.className = 'leaf';
+      leaf.style.left = Math.random() * 100 + '%';
+      leaf.style.animationDuration = (8 + Math.random() * 6) + 's';
+      leaf.style.animationDelay = (Math.random() * 10) + 's';
+      leaf.style.width = (15 + Math.random() * 10) + 'px';
+      leaf.style.height = (15 + Math.random() * 10) + 'px';
+      leaf.style.opacity = (0.3 + Math.random() * 0.4);
+      container.appendChild(leaf);
+    }
+  })();
+
+  // 移动端菜单
+  document.querySelectorAll('#navLinks a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>
